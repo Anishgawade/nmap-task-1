@@ -103,4 +103,35 @@ PORT     STATE SERVICE
 3306/tcp open  mysql
 
 Nmap done: 1 IP address (1 host up) scanned in 0.79 seconds
+------------------------------------------------------------------------------
+
+
+Research common services running on those ports (Summary)
+135, 137, 139, 445: Common Windows services for remote access and file sharing (e.g., RPC, NetBIOS, SMB).
+
+3306, 33060: MySQL database services (used for SQL and NoSQL access).
+
+5040, 49664–49668, 9012–9014: High or dynamic ports, often used by Windows services or custom apps.
+
+6850: Possibly outdated or internal service.
+
+7680: Used by Windows Delivery Optimization (for system updates).
+
+These ports indicate services like file sharing, database access, and system communication, which should be monitored for security.
+
+------------------------------------------------------------------------------
+
+Identify potential security risks from open ports
+
+| Port                                        | Risk                                                                                                          |
+| ------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **135/139/445**                             | Commonly targeted by malware and ransomware (e.g., WannaCry). Exposing these on public networks is risky.     |
+| **3306/33060**                              | If MySQL is not secured with a strong password and network restrictions, attackers can access sensitive data. |
+| **137**                                     | Can leak internal network information through NetBIOS.                                                        |
+| **High ports (49664–49668, etc.)**          | These may be services with default or weak configurations, offering unknown vulnerabilities.                  |
+| **Unknown/custom ports (5040, 9012, etc.)** | These should be investigated to ensure they are needed and secured. If not, they should be closed.            |
+
+
+
+
 

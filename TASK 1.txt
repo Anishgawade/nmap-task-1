@@ -1,0 +1,106 @@
+TASK 1 
+
+Local ip address: 192.168.20.172
+
+------------------------------------------------------------------------------
+// To check if any port is open or no (for eg. port 80) 
+Command: nmap -p 80 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 16:17 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.0010s latency).
+
+PORT   STATE  SERVICE
+80/tcp closed http
+
+Nmap done: 1 IP address (1 host up) scanned in 0.72 seconds
+------------------------------------------------------------------------------
+// To scan ip address from all the ports form a to b (for eg. 1-200)
+Command: nmap -p 1-200 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 16:19 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.00077s latency).
+Not shown: 197 closed tcp ports (reset)
+PORT    STATE    SERVICE
+135/tcp open     msrpc
+137/tcp filtered netbios-ns
+139/tcp open     netbios-ssn
+
+Nmap done: 1 IP address (1 host up) scanned in 1.96 seconds
+
+------------------------------------------------------------------------------
+// To perform TCP SYN scan.
+Command:  nmap -sS 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 16:57 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.0000030s latency).
+Not shown: 96 closed tcp ports (reset)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 0.71 seconds
+------------------------------------------------------------------------------
+// To scan only the top 100 most common ports (instead of all 65,535 ports).
+Command: nmap -F 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 17:00 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.0000060s latency).
+Not shown: 96 closed tcp ports (reset)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 0.72 seconds
+------------------------------------------------------------------------------
+// To scan all the ports at the ip address (all 65,535ports)
+Command:nmap -p - 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 17:02 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.00015s latency).
+Not shown: 65517 closed tcp ports (reset)
+PORT      STATE    SERVICE
+135/tcp   open     msrpc
+137/tcp   filtered netbios-ns
+139/tcp   open     netbios-ssn
+445/tcp   open     microsoft-ds
+3306/tcp  open     mysql
+5040/tcp  open     unknown
+6850/tcp  open     iccrushmore
+7680/tcp  open     pando-pub
+9012/tcp  open     unknown
+9013/tcp  open     unknown
+9014/tcp  open     unknown
+33060/tcp open     mysqlx
+49664/tcp open     unknown
+49665/tcp open     unknown
+49666/tcp open     unknown
+49667/tcp open     unknown
+49668/tcp open     unknown
+49674/tcp open     unknown
+
+Nmap done: 1 IP address (1 host up) scanned in 4.19 seconds
+------------------------------------------------------------------------------
+// TCP Connect scan (also called a "full-open" scan).
+Command:nmap -sT 192.168.20.172
+
+Starting Nmap 7.97 ( https://nmap.org ) at 2025-06-23 16:30 +0530
+Nmap scan report for 192.168.20.172
+Host is up (0.00083s latency).
+Not shown: 996 closed tcp ports (conn-refused)
+PORT     STATE SERVICE
+135/tcp  open  msrpc
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+3306/tcp open  mysql
+
+Nmap done: 1 IP address (1 host up) scanned in 0.79 seconds
+
